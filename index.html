@@ -4,55 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     // LOGIN / SIGNUP page
-    <section class="auth-screen">
+    <section class="auth-screen" class="auth-screen">
         <div class="auth-card">
             <div class="brand-row">
                 <span class="brand-logo">S</span>
+                <div>
+                    <h1>ScholarTracK</h1>
+                    <p>Student Management System</p>
+                </div>
             </div>
+            
+            <div class="auth-tabs">
+            <button id="loginTab" class="active" type="button">Student/Admin Login</button>
+            <button id="signupTab" class="auth-tab" type="button">Student Signup</button>
+            </div>
+            
+            <form id="loginForm" class="auth-form">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" name="email" type="email" value="admin@student.edu" required>
+
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" value="admin123" required>
+                <button type="submit">Login to Dashboard</button>
+            </form>
+
+            <form id="signupForm" class="auth-form hidden">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" placeholder="Example: Subash Chhetri" name="fullName" required>
+
+                <label for="signupEmail">Email Address</label>
+                <input type="email" id="signupEmail" name="email" placeholder="student@gmail.com" required>
+
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" name="password" placeholder="Create a password" required>
+
+                <label for="signupDepartment">Department</label>
+                <select id="signupDepartment" name="department" required>
+                    <option value="">Select Department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Electrical Engineering">Electrical Engineering</option>
+                    <option value="Mechanical Engineering">Mechanical Engineering</option>
+                    <option value="Civil Engineering">Civil Engineering</option>
+                    <option value="Business Administration">Business Administration</option>
+                </select>
+                
+                <label for="signupPhone">Phone</label>
+                <input type="tel" id="signupPhone" name="phone" placeholder="Example:(+378)123-456-7890" required>
+                
+                <button type="submit">Create Student Account</button>
+            </form>
+
+            <p class="small-note">Demo Login: admin@student.edu | Password: admin123</p>
         </div>
-
-        <div>
-            <button>Student/Admin Login</button>
-            <button>Student Signup</button>
-        </div>
-
-        <form id="loginForm" class="auth-form">
-            <label for="loginEmail">Email Address</label>
-            <input type="email" id="loginEmail" name="email" type="email" value="admin@student.edu" required>
-
-            <label for="loginPassword">Password</label>
-            <input type="password" id="loginPassword" name="password" value="admin123" required>
-            <button type="submit">Login to Dashboard</button>
-        </form>
-
-        <form id="signupForm" class="auth-form hidden">
-            <label for="signupName">Full Name</label>
-            <input type="text" id="signupName" placeholder="Example: Subash Chhetri" name="fullName" required>
-
-            <label for="signupEmail">Email Address</label>
-            <input type="email" id="signupEmail" name="email" placeholder="student@gmail.com" required>
-
-            <label for="signupPassword">Password</label>
-            <input type="password" id="signupPassword" name="password" placeholder="Create a password" required>
-
-            <label for="signupDepartment">Department</label>
-            <select id="signupDepartment" name="department" required>
-                <option value="">Select Department</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Electrical Engineering">Electrical Engineering</option>
-                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                <option value="Civil Engineering">Civil Engineering</option>
-                <option value="Business Administration">Business Administration</option>
-            </select>
-
-            <label for="signupPhone">Phone</label>
-            <input type="tel" id="signupPhone" name="phone" placeholder="Example:(+378)123-456-7890" required>
-
-            <button type="submit">Create Student Account</button>
-        </form>
     </section>
 </body>
 </html>
