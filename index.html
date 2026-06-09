@@ -27,6 +27,32 @@
             <input type="password" id="loginPassword" name="password" value="admin123" required>
             <button type="submit">Login to Dashboard</button>
         </form>
+
+        <form id="signupForm" class="auth-form hidden">
+            <label for="signupName">Full Name</label>
+            <input type="text" id="signupName" placeholder="Example: Subash Chhetri" name="fullName" required>
+
+            <label for="signupEmail">Email Address</label>
+            <input type="email" id="signupEmail" name="email" placeholder="student@gmail.com" required>
+
+            <label for="signupPassword">Password</label>
+            <input type="password" id="signupPassword" name="password" placeholder="Create a password" required>
+
+            <label for="signupDepartment">Department</label>
+            <select id="signupDepartment" name="department" required>
+                <option value="">Select Department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+                <option value="Mechanical Engineering">Mechanical Engineering</option>
+                <option value="Civil Engineering">Civil Engineering</option>
+                <option value="Business Administration">Business Administration</option>
+            </select>
+
+            <label for="signupPhone">Phone</label>
+            <input type="tel" id="signupPhone" name="phone" placeholder="Example:(+378)123-456-7890" required>
+
+            <button type="submit">Create Student Account</button>
+        </form>
     </section>
 </body>
 </html>
