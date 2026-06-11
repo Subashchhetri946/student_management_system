@@ -83,12 +83,31 @@
                 </div>
             </section>
 
-            <section id="studentPage">
+            <section id="studentPage" class="page">
+                <div>
+                    <p><strong>Students Management Registry</strong><br>ScholarTrack Administrative Workspace</p>
+                </div>
                 <div class="toolbar">
                     <input id="studentSearch" type="search" placeholder="Search by student name, roll, email and so on."/>
-                    <select id="departmentFilter"><option value="all">All Departments</option></select>
+                    <select id="departmentFilter">
+                        <option value="all">All Departments</option>
+                        <option value="Computer Science">Computer Science</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Business Administration">Business Administration</option>
+                        <option value="English Literature">English Literature</option>
+                        <option value="Electrical Engineering">Electrical Engineering</option>
+                    </select>
                     <button id="openAddStudent" class="blue-btn" type="button">+ Onboard Student</button>
                 </div>
+
+                <article class="panel table-panel">
+                    <table>
+                        <thead>
+                            <tr><th>Student</th><th>Class Roll ID</th><th>Academic College</th><th>Phone Contact</th><th>Enrollment Date</th><th>Academic Actions</th></tr>
+                        </thead>
+                        <tbody id="studentsTable"></tbody>
+                    </table>
+                </article>
             </section>
             
             <section id="attendancePage"></section>
