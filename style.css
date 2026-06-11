@@ -106,3 +106,75 @@ body {
     color: #7f8aa3;
     font-size: 13px;
  }
+
+ /* admin.html CSS styling */
+ 
+ .layout {
+    min-height: 100vh;
+    display: grid;
+ }
+
+ .sidebar {
+    width: 285px;
+    flex-shrink: 0;
+    background: #0f172a;
+    color: #ffffff;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+ }
+
+ .sidebar .brand-logo {
+    background: #3b82f6;
+ }
+
+.session-pill {
+    background: rgba(34, 197, 94, 0.14);
+    color: #86efac;
+    border: 1px solid rgba(134, 239, 172, 0.25);
+    border-radius: 999px;
+    padding: 10px 12px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.side-nav {
+    display: grid;
+    gap: 10px;
+}
+
+.nav-btn {
+    border: 0;
+    border-radius: 12px;
+    padding: 13px 14px;
+    text-align: left;
+    background: transparent;
+    color: #cbd5e1;
+}
+
+.nav-btn.active, .nav-btn:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.profile-box {
+    margin-top: auto;
+    display: grid;
+    gap: 7px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.profile-box small {
+    color: #94a3b8;
+}
+
+.profile-box button {
+    margin-top: 8px;
+    border: 0;
+    border-radius: 12px;
+    padding: 10px;
+    background: #1e293b;
+    color: #ffffff;
+}

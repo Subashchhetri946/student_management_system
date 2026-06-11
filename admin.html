@@ -15,18 +15,18 @@
                 <h1>ScholarTrack</h1>
             </div>
 
-            <div class="session-pill">SESSION ACTIVE</div>
+            <div class="session-pill">● SESSION ACTIVE</div>
 
-            <nav>
-                <button class="nav-btn active">Dashboard Stats</button>
-                <button class="nav-btn">Student Roster</button>
-                <button class="nav-btn">Daily Attendance</button>
-                <button class="nav-btn">Marks Transcript</button>
+            <nav class="side-nav">
+                <button class="nav-btn active">☷ Dashboard Stats</button>
+                <button class="nav-btn">▣ Student Roster</button>
+                <button class="nav-btn">☑ Daily Attendance</button>
+                <button class="nav-btn">▤ Marks Transcript</button>
             </nav>
 
             <div class="profile-box">
                 <strong id="loggedUserName">Admin User</strong>
-                <small>admin@school.edu</small>
+                <small id="loggedUserEmail">admin@school.edu</small>
                 <button id="logoutBtn" class="logout-btn" type="button">Logout</button>
             </div>
         </aside>
@@ -34,9 +34,16 @@
         <section class="main-area">
             <div>
                 <strong>MYSQL Spotlight:</strong> This is the academic registration platform. here, we use HTML for content, CSS for styling, and Javascript for contro, and MySQL for data storage.
-
+                <button id="closeStrip" type="button">X</button>
             </div>
         </section>
+
+        <header class="page-header">
+            <div>
+                <h1 id="pageHeading">Academic Dashboard Overview</h1>
+                <p>ScholarTrack Academic Platform</p>
+            </div>
+        </header>
 
         <section id="authPage"></section>
         <section id="dashboardPage"></section>
