@@ -197,4 +197,73 @@ body {
 .page-header h1 {
     margin: 6px 0 0;
     color: #64748b;
+}¨
+
+/* Dashboard Part */
+.panel, .stat-card {
+    background: #ffffff;
+    border: 1px solid #e5eaf3;
+    border-radius: 24px;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+}
+
+.panel {
+    padding: 22px;
+}
+
+.panel h2 {
+    margin: 0 0 6px;
+}
+
+.panel p {
+    margin: 0 0 18px;
+    color: #64748b;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.stat-card {
+    padding: 20px;
+}
+
+.stat-card span {
+    font-size: 24px;
+}
+
+.stat-card h2 {
+    margin: 0;
+    font-size: 28px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.donut-wrap {
+    display: flex;
+    gap: 22px;
+    align-items: center;
+}
+
+.donut {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: conic-gradient(#2563eb 0 72%, #dbeafe 72% 100%);
+    display: grid;
+    place-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.donut strong,
+.donut small {
+    display: block;
 }

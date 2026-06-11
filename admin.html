@@ -8,7 +8,6 @@
 </head>
 <body>
      <main id="appScreen" class="layout">
-        // here, goes the sidebar content
         <aside class="sidebar">
             <div class="brand">
                 <span class="brand-logo">S</span>
@@ -33,7 +32,7 @@
 
         <section class="main-area">
             <div>
-                <strong>MYSQL Spotlight:</strong> This is the academic registration platform. here, we use HTML for content, CSS for styling, and Javascript for contro, and MySQL for data storage.
+                <strong>*</strong> This is the academic registration platform. here, we use HTML for content, CSS for styling, and Javascript for contro, and MySQL for data storage.
                 <button id="closeStrip" type="button">X</button>
             </div>
 
@@ -44,10 +43,56 @@
                 </div>
             </header>
 
-            <section id="authPage"></section>
-            <section id="dashboardPage"></section>
-            <section id="studentPage"></section>
+            <section id="dashboardPage">
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <span>👥</span><p>TOTAL ENROLLMENTS</p>
+                        <h2 id="totalStudents">0</h2>
+                    </article>
+                    <article class="stat-card">
+                        <span>📖</span><p>REGISTRATION MEAN GPA</p>
+                        <h2><b id="averageGPA">0.00</b> / 4.00</h2>
+                    </article>
+                    <article class="stat-card">
+                        <span>📅</span><p>DAILY ATTENDANCE RATE</p>
+                        <h2 id="attendanceRate">0%</h2>
+                    </article>
+                    <article class="stat-card">
+                        <span>▦</span><p>TOP DEPARTMENT</p>
+                        <h2 id="topDepartment">None</h2>
+                    </article>
+                </div>
+
+                <div class="dashboard-grid">
+                    <article class="panel">
+                        <h2>Department Score Comparison</h2>
+                        <p>Mean GPA points analyzed across colleges</p>
+                        <div></div>
+                    </article>
+
+                    <article class="panel grade-panel">
+                        <h2>Registrar Grade Distribution</h2>
+                        <p>Quantity share of score groups across records</p>
+                        <div class="donut-wrap">
+                            <div class="donut">
+                                <strong id="passPercent">0%</strong>
+                                <small>PASSING</small>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section id="studentPage">
+                <div class="toolbar">
+                    <input id="studentSearch" type="search" placeholder="Search by student name, roll, email and so on."/>
+                    <select id="departmentFilter"><option value="all">All Departments</option></select>
+                    <button id="openAddStudent" class="blue-btn" type="button">+ Onboard Student</button>
+                </div>
+            </section>
+            
             <section id="attendancePage"></section>
+
             <section id="marksPage"></section>
         </section>
 
