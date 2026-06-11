@@ -19,8 +19,8 @@
             </div>
             
             <div class="auth-tabs">
-            <button id="loginTab" class="active" type="button">Student/Admin Login</button>
-            <button id="signupTab" class="auth-tab" type="button">Student Signup</button>
+                <button id="loginTab" class="active" type="button">Student/Admin Login</button>
+                <button id="signupTab" class="auth-tab" type="button">Student Signup</button>
             </div>
             
             <form id="loginForm" class="auth-form">
@@ -32,7 +32,8 @@
                 <button type="submit">Login to Dashboard</button>
             </form>
 
-            <form id="signupForm" class="auth-form hidden">
+            <div class="signup-section hidden">
+             <form id="signupForm" class="auth-form hidden">
                 <label for="signupName">Full Name</label>
                 <input type="text" id="signupName" placeholder="Example: Subash Chhetri" name="fullName" required>
 
@@ -56,10 +57,52 @@
                 <input type="tel" id="signupPhone" name="phone" placeholder="Example:(+378)123-456-7890" required>
                 
                 <button type="submit">Create Student Account</button>
-            </form>
+             </form>
+            </div>
 
             <p class="small-note">Demo Login: admin@student.edu | Password: admin123</p>
         </div>
     </section>
+
+    <main id="appScreen" class="layout hidden">
+        // here, goes the sidebar content
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-logo">S</span>
+                <h1>ScholarTrack</h1>
+            </div>
+
+            <div class="session-pill">SESSION ACTIVE</div>
+
+            <nav>
+                <button class="nav-btn active">Dashboard Stats</button>
+                <button class="nav-btn">Student Roster</button>
+                <button class="nav-btn">Daily Attendance</button>
+                <button class="nav-btn">Marks Transcript</button>
+            </nav>
+
+            <div class="profile-box">
+                <strong id="loggedUserName">Admin User</strong>
+                <small>admin@school.edu</small>
+                <button id="logoutBtn" class="logout-btn" type="button">Logout</button>
+            </div>
+        </aside>
+
+        <section class="main-area">
+            <div>
+                <strong>MYSQL Spotlight:</strong> This is the academic registration platform. here, we use HTML for content, CSS for styling, and Javascript for contro, and MySQL for data storage.
+
+            </div>
+        </section>
+
+        <section id="authPage"></section>
+        <section id="dashboardPage"></section>
+        <section id="studentPage"></section>
+        <section id="attendancePage"></section>
+        <section id="marksPage"></section>
+
+
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>

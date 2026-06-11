@@ -9,8 +9,8 @@ body {
     background: #0b1b34;
 }
 
-.hidden {
-    display:none;
+.auth-form hidden, .hidden {
+    display: none;
 }
 
 .auth-screen {
