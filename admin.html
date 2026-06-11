@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <main id="appScreen" class="layout">
+        // here, goes the sidebar content
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-logo">S</span>
+                <h1>ScholarTrack</h1>
+            </div>
+
+            <div class="session-pill">SESSION ACTIVE</div>
+
+            <nav>
+                <button class="nav-btn active">Dashboard Stats</button>
+                <button class="nav-btn">Student Roster</button>
+                <button class="nav-btn">Daily Attendance</button>
+                <button class="nav-btn">Marks Transcript</button>
+            </nav>
+
+            <div class="profile-box">
+                <strong id="loggedUserName">Admin User</strong>
+                <small>admin@school.edu</small>
+                <button id="logoutBtn" class="logout-btn" type="button">Logout</button>
+            </div>
+        </aside>
+
+        <section class="main-area">
+            <div>
+                <strong>MYSQL Spotlight:</strong> This is the academic registration platform. here, we use HTML for content, CSS for styling, and Javascript for contro, and MySQL for data storage.
+
+            </div>
+        </section>
+
+        <section id="authPage"></section>
+        <section id="dashboardPage"></section>
+        <section id="studentPage"></section>
+        <section id="attendancePage"></section>
+        <section id="marksPage"></section>
+
+
+    </main>
+</body>
+</html>
