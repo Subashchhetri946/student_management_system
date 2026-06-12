@@ -103,14 +103,46 @@
                 <article class="panel table-panel">
                     <table>
                         <thead>
-                            <tr><th>Student</th><th>Class Roll ID</th><th>Academic College</th><th>Phone Contact</th><th>Enrollment Date</th><th>Academic Actions</th></tr>
+                            <tr>
+                                <th>Student</th>
+                                <th>Class Roll ID</th>
+                                <th>Academic College</th>
+                                <th>Phone Contact</th>
+                                <th>Enrollment Date</th>
+                                <th>Academic Actions</th>
+                            </tr>
                         </thead>
                         <tbody id="studentsTable"></tbody>
                     </table>
                 </article>
             </section>
             
-            <section id="attendancePage"></section>
+            <section id="attendancePage" class="page">
+                <div class="attendance-header panel">
+                    <div>
+                        <h2>Daily Lecture Roster Roll-Call</h2><p>Verify daily presence pointers mapped to SQL</p>
+                        <label>Lecutre Date: <input id="attendanceDate" type="date" /></label>
+                    </div>
+                </div>
+
+                <article class="panel table-panel">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Class ID</th>
+                                <th>Roaster Presence Status Selector</th>
+                                <th>Remarks Note</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attendanceTable"></tbody>
+                    </table>
+                    <div class="save-row">
+                        <span id="attendanceCount">Batch size: 0 recorded entries</span>
+                        <button id="saveAttendance" class="blue-btn" type="button">▣ Execute Roster Journal Save</button>
+                    </div>
+                </article>
+            </section>
 
             <section id="marksPage"></section>
         </section>
