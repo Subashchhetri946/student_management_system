@@ -9,8 +9,8 @@ body {
     background: #0b1b34;
 }
 
-.auth-form hidden, .hidden {
-    display: none;
+.hidden{
+    display: none !important;
 }
 
 .auth-screen {
@@ -72,7 +72,7 @@ body {
 
  .auth-form {
     display: grid;
-    gap: 10px;
+    gap: 12px;
  }
 
  .auth-form label {
