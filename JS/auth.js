@@ -13,6 +13,7 @@ function switchAuthTab(tabName) {
     loginForm.classList.toggle('hidden', tabName !== 'login');
     signupForm.classList.toggle('hidden', tabName !== 'signup');
 }
+
 const app = loadApp();
 loginForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -28,4 +29,46 @@ loginForm.addEventListener('submit', event => {
 
     setCurrentUser(user);
     window.location.href = user.role === 'admin' ? 'admin.html' : 'student.html';
+});
+
+signupForm.addEventListener('submit', event => {
+    event.preventDefault();
+
+    const name = document.getElementById('signupName').value.trim();
+    const email = document.getElementById('signupEmail').value.trim();
+    const password = document.getElementById('signupPassword').value;
+    const department = document.getElementById('signupDepartment').value.trim();
+    const phone = document.getElementById('signupPhone').value.trim();
+
+    if(app.users.some(user => user.email === email)) {
+        alert('this email is already registered.');
+    }
+
+    const student = {
+        id: Date.now(), 
+        name, 
+        email,
+        department,
+        phone,
+        roll: createRollNumber(),
+        date: new Date().toISOString().slice(0, 10)
+    };
+
+    const user = {
+        name,
+        email,
+        password,
+        role: 'student',
+        studentId: student.id
+    };
+
+    app.students.push(student);
+    app.users.push(user);
+
+    app.marks[student.id] = [92, 88, 85, 90, 95];
+    app.attendence[student.id] = 'Present';
+
+    saveApp(app);
+    setCurrentUser(user);
+    window.location.href = 'student.html'
 })
