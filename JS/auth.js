@@ -18,7 +18,7 @@ const app = loadApp();
 loginForm.addEventListener('submit', event => {
     event.preventDefault();
 
-    const email = document.getElementById('loginEmail').ariaValueMax.trim();
+    const email = document.getElementById('loginEmail').value.trim();
     const password = document.getElementById('loginPassword').value;
     const user = app.users.find(item =>item.email === email && item.password === password);
 
@@ -42,6 +42,7 @@ signupForm.addEventListener('submit', event => {
 
     if(app.users.some(user => user.email === email)) {
         alert('this email is already registered.');
+        return;
     }
 
     const student = {
@@ -66,7 +67,7 @@ signupForm.addEventListener('submit', event => {
     app.users.push(user);
 
     app.marks[student.id] = [92, 88, 85, 90, 95];
-    app.attendence[student.id] = 'Present';
+    app.attendance[student.id] = 'Present';
 
     saveApp(app);
     setCurrentUser(user);
