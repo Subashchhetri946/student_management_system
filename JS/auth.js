@@ -31,7 +31,7 @@ loginForm.addEventListener('submit', event => {
     window.location.href = user.role === 'admin' ? 'admin.html' : 'student.html';
 });
 
-signupForm.addEventListener('submit', event => {
+signupForm.addEventListener('submit', async(event) => {
     event.preventDefault();
 
     const name = document.getElementById('signupName').value.trim();
@@ -39,37 +39,40 @@ signupForm.addEventListener('submit', event => {
     const password = document.getElementById('signupPassword').value;
     const department = document.getElementById('signupDepartment').value.trim();
     const phone = document.getElementById('signupPhone').value.trim();
+try {
+        const response = await fetch("http://localhost:5000/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                name,
+                email,
+                password,
+                department,
+                phone
+            })
+        });
 
-    if(app.users.some(user => user.email === email)) {
-        alert('this email is already registered.');
-        return;
+        const data = await response.json();
+
+        alert(data.message);
+
+        if (data.success) {
+            localStorage.setItem("userRole", "student");
+            localStorage.setItem("currentUser", JSON.stringify({
+                name,
+                email,
+                department,
+                phone,
+                role: "student"
+            }));
+
+            window.location.href = "student.html";
+        }
+
+    } catch (error) {
+        console.log(error);
+        alert("Server error. Make sure backend is running.");
     }
-
-    const student = {
-        id: Date.now(), 
-        name, 
-        email,
-        department,
-        phone,
-        roll: createRollNumber(),
-        date: new Date().toISOString().slice(0, 10)
-    };
-
-    const user = {
-        name,
-        email,
-        password,
-        role: 'student',
-        studentId: student.id
-    };
-
-    app.students.push(student);
-    app.users.push(user);
-
-    app.marks[student.id] = [92, 88, 85, 90, 95];
-    app.attendance[student.id] = 'Present';
-
-    saveApp(app);
-    setCurrentUser(user);
-    window.location.href = 'student.html'
-})
+});

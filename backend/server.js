@@ -1,23 +1,25 @@
 // testing the connection
 
 const express = require("express");
+const cors = require("cors");
 const db = require("./db");
 
 const app = express();
-app.use(expresss.json());
+app.use(cors());
+app.use(express.json());
 
 db.connect(err => {
     if(err) {
         console.log(err);
     } else {
-        console.log("MySQL Connected sucessfully")
+        console.log("MySQL Connected sucessfully");
     }
 })
 
 app.post("/signup", (req, res) => {
-    const {name, email, password} = req.body;
+    const { name, email, password } = req.body;
 
-    const sql = "INSERT INTO users (name, email, password, role VALUES (?, ?, ?, 'student')";
+    const sql = "INSERT INTO users (name, email, password), role VALUES (?, ?, ?, 'student')";
     db.query(sql, [name, email, password], (err, result) => {
         if(err) {
             console.log(err);
