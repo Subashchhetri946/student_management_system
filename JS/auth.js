@@ -14,7 +14,6 @@ function switchAuthTab(tabName) {
     signupForm.classList.toggle('hidden', tabName !== 'signup');
 }
 
-const app = loadApp();
 loginForm.addEventListener('submit', event => {
     event.preventDefault();
 
