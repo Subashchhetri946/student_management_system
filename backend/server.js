@@ -50,7 +50,7 @@ app.post("/login", (req, res) => {
                 message: "Login failed"
             });
         }
-        if(results.length === 0) {
+        if(result.length === 0) {
             return res.status(401).json({
                 success: false,
                 message: "Invalid email or password"

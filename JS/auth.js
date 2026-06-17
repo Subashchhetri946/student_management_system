@@ -14,20 +14,37 @@ function switchAuthTab(tabName) {
     signupForm.classList.toggle('hidden', tabName !== 'signup');
 }
 
-loginForm.addEventListener('submit', event => {
+loginForm.addEventListener('submit', async(event) => {
     event.preventDefault();
 
     const email = document.getElementById('loginEmail').value.trim();
     const password = document.getElementById('loginPassword').value;
-    const user = app.users.find(item =>item.email === email && item.password === password);
 
-    if(!user) {
-        alert('Invalid login. Try the demo admin');
-        return;
+    try {
+        const response = await fetch("http://localhost:5000/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        if (data.success) {
+            localStorage.setItem("userRole", data.user.role);
+            localStorage.setItem("currentUser", JSON.stringify(data.user))
+
+            window.location.href = 
+            data.user.role === "admin" ? "admin.html" : "student.html";
+        }
+
+    } catch (error) {
+        console.log(error);
+        alert("Server error. Make sure backend is running.");
     }
-
-    setCurrentUser(user);
-    window.location.href = user.role === 'admin' ? 'admin.html' : 'student.html';
 });
 
 signupForm.addEventListener('submit', async(event) => {
