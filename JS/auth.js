@@ -35,11 +35,18 @@ loginForm.addEventListener('submit', async(event) => {
 
         if (data.success) {
             localStorage.setItem("userRole", data.user.role);
-            localStorage.setItem("currentUser", JSON.stringify(data.user))
+        localStorage.setItem("currentUser", JSON.stringify(data.user))
 
-            window.location.href = 
-            data.user.role === "admin" ? "admin.html" : "student.html";
+        window.location.href = 
+        data.user.role === "admin" ? "admin.html" : "student.html";
+            return;
         }
+        
+        localStorage.setItem("userRole", data.user.role);
+        localStorage.setItem("currentUser", JSON.stringify(data.user))
+
+        window.location.href = 
+        data.user.role === "admin" ? "admin.html" : "student.html";
 
     } catch (error) {
         console.log(error);

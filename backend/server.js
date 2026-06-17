@@ -59,7 +59,7 @@ app.post("/login", (req, res) => {
 
         res.json({
             success: true, 
-            message: "Student account created successfully"
+            message: "Login created successfully",
         });
     });
 });
