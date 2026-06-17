@@ -37,6 +37,33 @@ app.post("/signup", (req, res) => {
     });
 });
 
+app.post("/login", (req, res) => {
+    const { name, email, password } = req.body;
+
+    const sql = "SELECT id, name, role FROM users WHERE email = ? AND password = ?";
+    db.query(sql, [ email, password], (err, result) => {
+        if(err) {
+            console.log(err);
+
+            return res.status(500).json({
+                success: false,
+                message: "Login failed"
+            });
+        }
+        if(results.length === 0) {
+            return res.status(401).json({
+                success: false,
+                message: "Invalid email or password"
+            });
+        }
+
+        res.json({
+            success: true, 
+            message: "Student account created successfully"
+        });
+    });
+});
+
 app.listen(5000, () => {
     console.log("Server Running");
 });
