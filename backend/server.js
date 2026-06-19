@@ -60,6 +60,7 @@ app.post("/login", (req, res) => {
         res.json({
             success: true, 
             message: "Login created successfully",
+            user: result[0]
         });
     });
 });

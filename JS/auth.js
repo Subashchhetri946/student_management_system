@@ -34,11 +34,7 @@ loginForm.addEventListener('submit', async(event) => {
         alert(data.message);
 
         if (data.success) {
-            localStorage.setItem("userRole", data.user.role);
-        localStorage.setItem("currentUser", JSON.stringify(data.user))
-
-        window.location.href = 
-        data.user.role === "admin" ? "admin.html" : "student.html";
+            alert(data.message);
             return;
         }
         
