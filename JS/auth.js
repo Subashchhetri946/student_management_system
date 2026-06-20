@@ -31,9 +31,7 @@ loginForm.addEventListener('submit', async(event) => {
 
         const data = await response.json();
 
-        alert(data.message);
-
-        if (data.success) {
+        if (!data.success) {
             alert(data.message);
             return;
         }
