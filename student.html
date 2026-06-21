@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Et est quaerat quis tempora provident doloribus magni veniam, dolorum placeat aut ad nihil, doloremque a? Delectus totam commodi ex culpa distinctio.</p>
+    <main class="layout student-layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-logo">S</span>
+                <h2>ScholarTrack</h2>
+            </div>
+
+            <div>● Student Session Active</div>
+
+            
+            <p>STUDENT PORTAL</p>
+            <nav class="side-nav">
+                <button class="nav-btn active">▤ My Grades Transcript</button>
+                <button class="nav-btn">☑ My Attendance Records</button>
+                <button class="nav-btn">👤 My Profile</button
+            </nav>
+
+
+            <div class="profile-box">
+                <strong id="loggedUserName">Student</strong>
+                <small>student@email.com</small>
+                <button id="logoutBtn" type="button">Logout</button>
+            </div>
+
+            <section class="main-area">
+                <header class="page-header">
+                    <div>
+                        <h1 id="pageHeading">My Grades Transcript</h1>
+                        <p>Student read-only academic workspace</p>
+                    </div>
+                </header>
+
+                <section id="marksPage" class="page active-page">
+                    <article class="panel transcript-panel">
+                        <div class="transcript-top">
+                            <div>
+                                <h2>Academic Grading Sheet</h2>
+                                <p>Your subject marks and grade result</p>
+                            </div>
+                            <div class="gpa-box">SUBJECT GPA: <strong id="studentGpa">0.0</strong></div>
+                        </div>
+                        <div id="marksRows" class="marks-rows"></div>
+                    </article>
+                </section>
+
+            </section>
+        </aside>
+    </main>
 </body>
-</html>
+</html> 
