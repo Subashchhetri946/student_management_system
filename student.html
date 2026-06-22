@@ -30,30 +30,55 @@
                 <small>student@email.com</small>
                 <button id="logoutBtn" type="button">Logout</button>
             </div>
-
-            <section class="main-area">
-                <header class="page-header">
-                    <div>
-                        <h1 id="pageHeading">My Grades Transcript</h1>
-                        <p>Student read-only academic workspace</p>
-                    </div>
-                </header>
-
-                <section id="marksPage" class="page active-page">
-                    <article class="panel transcript-panel">
-                        <div class="transcript-top">
-                            <div>
-                                <h2>Academic Grading Sheet</h2>
-                                <p>Your subject marks and grade result</p>
-                            </div>
-                            <div class="gpa-box">SUBJECT GPA: <strong id="studentGpa">0.0</strong></div>
-                        </div>
-                        <div id="marksRows" class="marks-rows"></div>
-                    </article>
-                </section>
-
-            </section>
         </aside>
+        <section class="main-area">
+            <header class="page-header">
+                <div>
+                    <h1 id="pageHeading">My Grades Transcript</h1>
+                    <p>Student read-only academic workspace</p>
+                </div>
+            </header>
+
+            <section id="marksPage" class="page active-page">
+                <article class="panel transcript-panel">
+                    <div class="transcript-top">
+                        <div>
+                            <h2>Academic Grading Sheet</h2>
+                            <p>Your subject marks and grade result</p>
+                        </div>
+                        <div class="gpa-box">SUBJECT GPA: <strong id="studentGpa">0.0</strong></div>
+                    </div>
+                    <div id="marksRows" class="marks-rows"></div>
+                </article>
+            </section>
+
+            <section id="attendancePage" class="page">
+                <article class="panel table-panel">
+                    <div class="student-section-title">
+                        <h2>My Attendance Records</h2>
+                        <p>Your attendance status saved by admin</p>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr><th>Student</th></tr>
+                            <tr><th>Class ID</th></tr>
+                            <tr><th>Attendance Status</th></tr>
+                            <tr><th>Remarks Note</th></tr>
+                        </thead>
+                        <tbody id="attendanceTable"></tbody>
+                    </table>
+                </article>
+            </section>
+
+            <section id="profilePage" class="page">
+                <article class="panel profile-details">
+                    <h2>Student Profile</h2>
+                    <div id="studentProfile"></div>
+                </article>
+            </section>
+        </section>
     </main>
+
+    <script src="JS/student.js"></script>
 </body>
 </html> 

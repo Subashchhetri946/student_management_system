@@ -9,19 +9,22 @@ body {
     background: #0b1b34;
 }
 
-.hidden, .page {
+/* .hidden, .page {
     display: none !important;
-}
+} */
 
 .active-page {
     display: block !important;
 }
 
+.auth-body {
+    background: linear-gradient(135deg, #599cf3, #eef2ff);
+}
 .auth-screen {
     min-height: 100vh;
     display: grid;
     place-items: center;
-    background: linear-gradient(135deg, #0b1b34, #12336e);
+    /* background: linear-gradient(135deg, #0b1b34, #12336e); */
 }
 .auth-card {
     width: min(400px, 90%);
