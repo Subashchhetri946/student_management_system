@@ -12,6 +12,7 @@ body {
 /* .hidden, .page {
     display: none !important;
 } */
+/* commenting out this above, to test some functionalities of page */
 
 .active-page {
     display: block !important;
