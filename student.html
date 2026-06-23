@@ -19,9 +19,9 @@
             
             <p>STUDENT PORTAL</p>
             <nav class="side-nav">
-                <button class="nav-btn active">▤ My Grades Transcript</button>
-                <button class="nav-btn">☑ My Attendance Records</button>
-                <button class="nav-btn">👤 My Profile</button
+                <button class="nav-btn active" data-page="marksPage">▤ My Grades Transcript</button>
+                <button class="nav-btn" data-page="attendancePage">☑ My Attendance Records</button>
+                <button class="nav-btn" data-page="profilePage">👤 My Profile</button>
             </nav>
 
 
@@ -60,10 +60,12 @@
                     </div>
                     <table>
                         <thead>
-                            <tr><th>Student</th></tr>
-                            <tr><th>Class ID</th></tr>
-                            <tr><th>Attendance Status</th></tr>
-                            <tr><th>Remarks Note</th></tr>
+                            <tr>
+                                <th>Student</th>
+                                <th>Class ID</th>
+                                <th>Attendance Status</th>
+                                <th>Remarks Note</th>
+                            </tr>
                         </thead>
                         <tbody id="attendanceTable"></tbody>
                     </table>

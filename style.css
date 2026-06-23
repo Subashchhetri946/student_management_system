@@ -9,9 +9,9 @@ body {
     background: #0b1b34;
 }
 
-/* .hidden, .page {
+.hidden, .page {
     display: none !important;
-} */
+}
 /* commenting out this above, to test some functionalities of page */
 
 .active-page {
