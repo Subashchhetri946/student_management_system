@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const student = findStudent();
 
     if(student) {
+        console.log(student);
         renderMarks(student);
+        renderAttendance(student);    
     } else {
         console.error("Student not found");
     }
@@ -73,7 +75,7 @@ function letterGrade(score) {
 console.log(user);
 
 function renderMarks(student) {
-    const scores = marks[student.id] || [0, 0, 0, 0, 0];
+    const scores = marks[student.studentId] || [0, 0, 0, 0, 0];
     document.getElementById('studentGpa').textContent = scoreToGpa(average(scores)).toFixed(1);
     document.getElementById('marksRows').innerHTML = subjects.map((subject, index) => {
     const score = scores[index] ?? 0;
@@ -88,4 +90,21 @@ function renderMarks(student) {
       </div>
     `;
   }).join('');
+}
+
+
+const attendance = {
+    4: "Present"
+}
+function renderAttendance(student) {
+  const status = attendance[student.id || student.studentId] || 'Not Recorded';
+
+  document.getElementById('attendanceTable').innerHTML = `
+    <tr>
+      <td><strong>${student.name}</strong><small>${student.department || ''}</small></td>
+      <td><small>${student.roll || 'N/A'}</small></td>
+      <td><span class="status-pill ${status.toLowerCase().replace(' ', '-')}">${status}</span></td>
+      <td><input class="remark-input" value="${status === 'Absent' ? 'Needs follow-up' : 'Scheduled Session'}" readonly></td>
+    </tr>
+  `;
 }
