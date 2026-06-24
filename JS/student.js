@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(student);
         renderMarks(student);
         renderAttendance(student);    
+        renderProfile(student);
     } else {
         console.error("Student not found");
     }
@@ -106,5 +107,19 @@ function renderAttendance(student) {
       <td><span class="status-pill ${status.toLowerCase().replace(' ', '-')}">${status}</span></td>
       <td><input class="remark-input" value="${status === 'Absent' ? 'Needs follow-up' : 'Scheduled Session'}" readonly></td>
     </tr>
+  `;
+}
+
+
+function renderProfile(student) {
+  document.getElementById('studentProfile').innerHTML = `
+    <div class="profile-grid">
+      <p><strong>Name</strong><span>${student.name || 'N/A'}</span></p>
+      <p><strong>Email</strong><span>${student.email || 'N/A'}</span></p>
+      <p><strong>Roll Number</strong><span>${student.roll || 'N/A'}</span></p>
+      <p><strong>Department</strong><span>${student.department || 'N/A'}</span></p>
+      <p><strong>Phone</strong><span>${student.phone || 'N/A'}</span></p>
+      <p><strong>Enrollment Date</strong><span>${student.date || 'N/A'}</span></p>
+    </div>
   `;
 }
