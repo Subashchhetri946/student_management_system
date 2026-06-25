@@ -34,5 +34,5 @@ function showPage(pageId) {
 }
 
 function logout() {
-    
+     window.location.href = "index.html";
 }
