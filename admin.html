@@ -17,7 +17,7 @@
             <div class="session-pill">● SESSION ACTIVE</div>
 
             <nav class="side-nav">
-                <button class="nav-btn active">☷ Dashboard Stats</button>
+                <button class="nav-btn active" data-page="dashboardPage">☷ Dashboard Stats</button>
                 <button class="nav-btn" data-page="studentsPage">▣ Student Roster</button>
                 <button class="nav-btn" data-page="attendancePage">☑ Daily Attendance</button>
                 <button class="nav-btn" data-page="marksPage">▤ Marks Transcript</button>
@@ -43,7 +43,7 @@
                 </div>
             </header>
 
-            <section id="dashboardPage">
+            <section id="dashboardPage" class="page active-page">
                 <div class="stats-grid">
                     <article class="stat-card">
                         <span>👥</span><p>TOTAL ENROLLMENTS</p>
@@ -83,7 +83,7 @@
                 </div>
             </section>
 
-            <section id="studentPage" class="page">
+            <section id="studentsPage" class="page">
                 <div>
                     <p><strong>Students Management Registry</strong><br>ScholarTrack Administrative Workspace</p>
                 </div>

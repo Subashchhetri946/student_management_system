@@ -1,5 +1,5 @@
-const user = getCurrentUser();
-let selectedStudentId = app.students[0]?.id || null;
+const user = JSON.parse(localStorage.getItem("currentUser"));
+let selectedStudentId = null;
 
 if(!user || user.role !== 'admin') {
     window.location.href = 'index.html';
@@ -15,10 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('logoutBtn').addEventListener('click', logout);
-    document.getElementById('closeStrip').addEventListener('click', () => document.querySelector('.mysql-strip').style.display = 'none');
 
-    showPage(dashboardPage);
-    showPage(studentsPage);
+    showPage("dashboardPage");
 
 });
 
@@ -35,3 +33,6 @@ function showPage(pageId) {
     document.getElementById('pageHeading').textContent = titles[pageId];
 }
 
+function logout() {
+    
+}

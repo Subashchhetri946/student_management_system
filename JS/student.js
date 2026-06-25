@@ -56,8 +56,32 @@ console.log(localStorage.getItem("currentUser"));
 
 
 const subjects = ["Math", "Science", "English", "Computer", "Social"];
+const students = [
+    {
+        id: 1, 
+        name: "Sarah Jenkins",
+        email: "moi@student.edu",
+        roll: "C5001",
+        department: "Computer Science",
+        phone: "9805645834",
+        date: "2024-01-15",
+        marks: [21, 88, 85, 90, 95],
+        attendance: "Present"
+    },
+    {
+        id: 4, 
+        name: "Srijan Poudel",
+        email: "srijan@student.edu",
+        roll: "C5001",
+        department: "Computer Science",
+        phone: "9805645834",
+        date: "2024-01-15",
+        marks: [65, 72, 68, 80, 77],
+        attendance: "Absent"
+    }
+]
 const marks = {
-    1: [90, 80, 75, 65, 43]
+    1: [90, 80, 75,88, 95]
 }
 
 function average(scores) {
