@@ -42,5 +42,9 @@ function logout() {
 }
 
 function openAddStudentModal() {
-    
+    document.getElementById('studentModalTitle').textContent = 'Onboard Student';
+    document.getElementById('studentForm').reset();
+    document.getElementById('studentId').value = '';
+    document.getElementById('studentDate').valueAsDate = new Date();
+    document.getElementById('studentModal').showModal();
 }

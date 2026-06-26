@@ -169,15 +169,22 @@
     </main>
 
     <dialog id="studentModal">
-        <form action="studentForm" class="modal-card">
+        <form id="studentForm" class="modal-card">
             <h2 id="studentModalTitle">Onboard Student</h2>
             <input type="hidden" id="studentId"/>
             <label for="studentName">Student Name</label>
             <input type="text" id="studentName" required>
             <label for="studentEmail">Email</label>
             <input type="email" id="studentEmail" type="email">
-            <label for="">Department</label>
-            <input type="text" id="studentDepartment" required>
+            <label for="studentDepartment">Department</label>
+            <select id="studentDepartment">
+                <option value="all">All Departments</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Physics">Physics</option>
+                <option value="Business Administration">Business Administration</option>
+                <option value="English Literature">English Literature</option>
+                <option value="Electrical Engineering">Electrical Engineering</option>
+            </select>
 
             <label for="studentPhone">Phone</label>
             <input type="text" id="studentPhone" required>
