@@ -160,19 +160,37 @@
                         <div id="marksRows" class="marks-rows"></div>
                         <div>
                             <span>* All inputs validated pursuant relational databasee rules</span>
-                            <button id="saveMarks" class="blue-btn" type="button">Apply Transcripts Ledger</button>
+                            <button id="saveMarks" class="blue-btn" type="button">▣Apply Transcripts Ledger</button>
                         </div>
                     </article>
                 </div>
             </section>
         </section>
-
-        
-
-        
-
-
     </main>
+
+    <dialog id="studentModal">
+        <form action="studentForm" class="modal-card">
+            <h2 id="studentModalTitle">Onboard Student</h2>
+            <input type="hidden" id="studentId"/>
+            <label for="studentName">Student Name</label>
+            <input type="text" id="studentName" required>
+            <label for="studentEmail">Email</label>
+            <input type="email" id="studentEmail" type="email">
+            <label for="">Department</label>
+            <input type="text" id="studentDepartment" required>
+
+            <label for="studentPhone">Phone</label>
+            <input type="text" id="studentPhone" required>
+
+            <label for="studentDate">Enrollment Date</label>
+            <input type="date" id="studentDate" required>
+
+            <div class="modal-actions">
+                <button id="cancelStudent" type="button">Cancel</button>
+                <button class="blue-btn" type="submit">Save Student</button>
+            </div>
+        </form>
+    </dialog>
     <script src="/JS/admin.js"></script>
 </body>
 </html>

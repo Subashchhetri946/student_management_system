@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('logoutBtn').addEventListener('click', logout);
     document.getElementById('closeStrip').addEventListener('click', () => {
         document.querySelector('.mysql-strip').style.display = 'none'
-    })
+    });
+    document.getElementById('openAddStudent').addEventListener('click', openAddStudentModal);
 
     showPage("dashboardPage");
 
@@ -38,4 +39,8 @@ function showPage(pageId) {
 
 function logout() {
      window.location.href = "index.html";
+}
+
+function openAddStudentModal() {
+    
 }
