@@ -15,6 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.getElementById('logoutBtn').addEventListener('click', logout);
+    document.getElementById('closeStrip').addEventListener('click', () => {
+        document.querySelector('.mysql-strip').style.display = 'none'
+    })
 
     showPage("dashboardPage");
 
