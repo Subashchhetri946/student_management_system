@@ -73,8 +73,11 @@ app.post("/students", (req, res) => {
     "Insert INTO users (name, email, password, role) VALUES (?, ?, ?, 'student')";
 db.query(userSql, [name, email, "student123"], (err, userResult) => {
     if(err) {
-        console.log(err);
-        return res.status(500).json({success: false});
+        console.log("USER INSERT ERROR: ", err);
+        return res.status(500).json({
+            success: false, 
+            message: err.sqlMessage
+        });
     }
     const userId = userResult.insertId;
     const studentSql = `
@@ -82,18 +85,19 @@ db.query(userSql, [name, email, "student123"], (err, userResult) => {
     VALUES(?, ?, ?, ?, ?)
 `;
 
-    db.query(
-        studentSql, [userId, roll, department, phone, date], (err2) => {
+    db.query(studentSql, [userId, roll, department, phone, date], (err2) => {
             if(err2) {
-                console.log(err2);
-                return res.status(500).json({ success: false}); 
+                console.log("STUDENT INSERT ERROR: ",err2);
+                return res.status(500).json({ 
+                    success: false,
+                    message: err2.sqlMessage
+                }); 
             }
             res.json( {
                 success: true,
                 message: "Student added successfully"
             });
-        }
-    )
+        })
 
 });
 });

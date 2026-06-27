@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('cancelStudent').addEventListener('click', () => {
         document.getElementById('studentModal').close()
     });
-    document.getElementById()
+    document.getElementById('studentForm').addEventListener('submit', saveStudentFromForm);
     showPage("dashboardPage");
 
 });
@@ -54,4 +54,36 @@ function openAddStudentModal() {
     document.getElementById('studentId').value = '';
     document.getElementById('studentDate').valueAsDate = new Date();
     document.getElementById('studentModal').showModal();
+}
+ 
+function createRollNumber() {
+    return "ROLL-" + Date.now();
+}
+async function saveStudentFromForm(event) {
+    event.preventDefault();
+
+    const student = {
+        name: document.getElementById("studentName").value.trim(),
+        email: document.getElementById("studentEmail").value.trim(),
+        department: document.getElementById("studentDepartment").value.trim(),
+        phone: document.getElementById("studentPhone").value.trim(),
+        date: document.getElementById("studentDate").value.trim(),
+        roll: createRollNumber()
+    };
+    const response = await fetch("http://localhost:5000/students", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(student)
+    });
+
+    const result = await response.json();
+    if(result.success) {
+        alert("Student added successfully!");
+        document.getElementById("studentModal").close();
+        document.getElementById("studentForm").reset();
+    } else {
+        alert(result.message);
+    }
 }
