@@ -66,7 +66,37 @@ app.post("/login", (req, res) => {
 });
 
 // adding student and saving
+app.post("/students", (req, res) => {
+    const { name, email, department, phone, date, roll} = req.body;
 
+    const userSql =
+    "Insert INTO users (name, email, password, role) VALUES (?, ?, ?, 'student')";
+db.query(userSql, [name, email, "student123"], (err, userResult) => {
+    if(err) {
+        console.log(err);
+        return res.status(500).json({success: false});
+    }
+    const userId = userResult.insertId;
+    const studentSql = `
+    INSERT INTO students(user_id, roll_no, department, phone, enrollment_date)
+    VALUES(?, ?, ?, ?, ?)
+`;
+
+    db.query(
+        studentSql, [userId, roll, department, phone, date], (err2) => {
+            if(err2) {
+                console.log(err2);
+                return res.status(500).json({ success: false}); 
+            }
+            res.json( {
+                success: true,
+                message: "Student added successfully"
+            });
+        }
+    )
+
+});
+});
 app.listen(5000, () => {
     console.log("Server Running");
 });
