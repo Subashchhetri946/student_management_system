@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     document.getElementById('studentForm').addEventListener('submit', saveStudentFromForm);
     showPage("dashboardPage");
+    loadStudents();
 
 });
 
@@ -86,4 +87,31 @@ async function saveStudentFromForm(event) {
     } else {
         alert(result.message);
     }
+}
+
+async function loadStudents() {
+    const response = await fetch("http://localhost:5000/students");
+    const result = await response.json();
+    const students = result;
+    if(!response.ok) {
+        console.error("Load students error: ", result.message);
+        alert(result.message);
+        return;
+    }
+    const table = document.getElementById("studentsTable");
+    table.innerHTML = students.map(student => `
+    <tr>
+      <td>${student.name}<br><small>${student.email}</small></td>
+      <td><small>${student.roll_no}</small></td>
+      <td>${student.department}</td>
+      <td>${student.phone}</td>
+      <td>${student.enrollment_date}</td>
+      <td>
+        <button class="icon-btn" onclick="selectForMarks(${student.id})">▤</button>
+        <button class="icon-btn" onclick="openEditStudentModal(${student.id})">✎</button>
+        <button class="icon-btn danger" onclick="deleteStudent(${student.id})">🗑</button>
+      </td>
+    </tr>
+  `).join('');
+
 }

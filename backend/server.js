@@ -73,10 +73,10 @@ app.post("/students", (req, res) => {
     "Insert INTO users (name, email, password, role) VALUES (?, ?, ?, 'student')";
 db.query(userSql, [name, email, "student123"], (err, userResult) => {
     if(err) {
-        console.log("USER INSERT ERROR: ", err);
+        console.log("GET STUDENTS FULL ERROR: ", err);
         return res.status(500).json({
             success: false, 
-            message: err.sqlMessage
+            message: err.sqlMessage || err.message
         });
     }
     const userId = userResult.insertId;
@@ -101,6 +101,34 @@ db.query(userSql, [name, email, "student123"], (err, userResult) => {
 
 });
 });
+
+
+app.get("/students", (req, res) => {
+    const sql = `SELECT s.id,
+     u.name, 
+     u.email,
+     s.roll_no,
+     s.department, 
+     s.phone, 
+     s.enrollment_date
+    FROM students AS s
+    INNER JOIN users AS u
+    ON s.user_id = u.id
+    ORDER BY s.id DESC`;
+
+    db.query(sql, (err, results) => {
+        if(err) {
+            console.log("GET STUDETNS ERROR: ",err.sqlMessage);
+            return res.status(500).json({
+                success:false,
+                message: err.sqlMessage
+            });
+        }
+        res.json(results);
+    });
+});
+
+
 app.listen(5000, () => {
     console.log("Server Running");
 });
