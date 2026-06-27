@@ -18,8 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('closeStrip').addEventListener('click', () => {
         document.querySelector('.mysql-strip').style.display = 'none'
     });
+
+    // for adding student from onboard button
     document.getElementById('openAddStudent').addEventListener('click', openAddStudentModal);
 
+    // remove the popup window
+    document.getElementById('cancelStudent').addEventListener('click', () => {
+        document.getElementById('studentModal').close()
+    });
+    document.getElementById()
     showPage("dashboardPage");
 
 });

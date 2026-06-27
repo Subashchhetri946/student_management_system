@@ -65,6 +65,8 @@ app.post("/login", (req, res) => {
     });
 });
 
+// adding student and saving
+
 app.listen(5000, () => {
     console.log("Server Running");
 });
