@@ -128,6 +128,27 @@ app.get("/students", (req, res) => {
     });
 });
 
+app.delete("/students/:id", (req, res) => {
+
+    const id = req.params.id;
+
+    db.query("DELETE FROM students WHERE id = ?", [id], (err) => {
+
+        if (err) {
+            console.log(err);
+            return res.status(500).json({
+                success: false,
+                message: err.sqlMessage
+            });
+        }
+
+        res.json({
+            success: true,
+            message: "Student deleted successfully"
+        });
+    });
+
+});
 
 app.listen(5000, () => {
     console.log("Server Running");

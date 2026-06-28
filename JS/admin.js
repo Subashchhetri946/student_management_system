@@ -115,3 +115,42 @@ async function loadStudents() {
   `).join('');
 
 }
+function selectForMarks(id) {
+    selectedStudentId = id;
+    showPage("marksPage");
+    console.log("Selected student: ", id);
+}
+
+async function openEditStudentModal(id) {
+    const response = await fetch("http://localhost:5000/students");
+    const students = await response.json();
+
+    const student = students.find(s => s.id == id);
+
+    document.getElementById("studentModalTitle").textContent = "Edit Student";
+    document.getElementById("studentId").value = student.id;
+    document.getElementById("studentName").value = student.name;
+    document.getElementById("studentEmail").value = student.email;
+    document.getElementById("studentDepartment").value = student.department;
+    document.getElementById("studentPhone").value = student.phone;
+    document.getElementById("studentDate").value = student.enrollment_date;
+
+    document.getElementById("studentModal").showModal();
+}
+
+
+async function deleteStudent(id) {
+    if(!confirm("Delete this student?")) return;
+
+    const response = await fetch(`http://localhost:5000/students/${id}`, {
+        method: "DELETE"
+    });
+    const result = await response.json();
+    if(result.success) {
+        alert(result.message);
+        loadStudents();
+    } else {
+        alert(result.message);
+    }
+
+}
