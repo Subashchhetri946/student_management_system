@@ -71,7 +71,7 @@ async function saveStudentFromForm(event) {
         date: document.getElementById("studentDate").value.trim(),
         roll: createRollNumber()
     };
-    const response = await fetch("http://localhost:5000/students", {
+    const response = await fetch("http://https://student-management-system-v04r.onrender.com/students", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -90,7 +90,7 @@ async function saveStudentFromForm(event) {
 }
 
 async function loadStudents() {
-    const response = await fetch("http://localhost:5000/students");
+    const response = await fetch("http://https://student-management-system-v04r.onrender.com/students");
     const result = await response.json();
     const students = result;
     if(!response.ok) {
@@ -122,7 +122,7 @@ function selectForMarks(id) {
 }
 
 async function openEditStudentModal(id) {
-    const response = await fetch("http://localhost:5000/students");
+    const response = await fetch("http://https://student-management-system-v04r.onrender.com/students");
     const students = await response.json();
 
     const student = students.find(s => s.id == id);
@@ -142,7 +142,7 @@ async function openEditStudentModal(id) {
 async function deleteStudent(id) {
     if(!confirm("Delete this student?")) return;
 
-    const response = await fetch(`http://localhost:5000/students/${id}`, {
+    const response = await fetch(`http://https://student-management-system-v04r.onrender.com/students/${id}`, {
         method: "DELETE"
     });
     const result = await response.json();
