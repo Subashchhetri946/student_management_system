@@ -3,11 +3,11 @@
 const mysql = require("mysql2");
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "9805",
-    database: "student_management_system",
-    port: 3307
+    host: "sql7.freesqldatabase.com",
+    user: "sql7831857",
+    password: "kyAgUBWZSk",
+    database: "sql7831857",
+    port: 3306
 });
 
 module.exports = connection;
