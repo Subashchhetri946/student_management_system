@@ -149,6 +149,11 @@ app.delete("/students/:id", (req, res) => {
     });
 
 });
+
+app.get("/", (req, res) => {
+    res.send("Student Management System backend is running");
+})
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server Running on port ${PORT}`);
