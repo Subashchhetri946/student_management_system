@@ -1,3 +1,4 @@
+const API_URL = "https://student-management-system-v04r.onrender.com";
 
 const loginTab = document.getElementById('loginTab');
 const signupTab = document.getElementById('signupTab');
@@ -21,7 +22,7 @@ loginForm.addEventListener('submit', async(event) => {
     const password = document.getElementById('loginPassword').value;
 
     try {
-        const response = await fetch("http://localhost:5000/login", {
+        const response = await fetch(`${API_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
