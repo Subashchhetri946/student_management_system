@@ -58,7 +58,7 @@ signupForm.addEventListener('submit', async(event) => {
     const department = document.getElementById('signupDepartment').value.trim();
     const phone = document.getElementById('signupPhone').value.trim();
 try {
-        const response = await fetch("http://localhost:5000/signup", {
+        const response = await fetch("https://student-management-system-v04r.onrender.com/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
