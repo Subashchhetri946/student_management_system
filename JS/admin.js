@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('studentForm').addEventListener('submit', saveStudentFromForm);
     showPage("dashboardPage");
     loadStudents();
+    renderDashboard();
 
 });
 
@@ -153,4 +154,26 @@ async function deleteStudent(id) {
         alert(result.message);
     }
 
+}
+
+async function renderDashboard() {
+    try{
+        const response = await fetch("https://student-management-system-v04r.onrender.com/students");
+    const students = await response.json();
+
+    document.getElementById("totalStudents").textContent = students.length;
+
+    const deptCounts = {};
+    students.forEach(student => {
+        deptCounts[student.department] = (deptCounts[student.department] || 0) + 1;
+    });
+
+    const topDepartment = Object.entries(deptCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || "None";
+
+    document.getElementById("topDepartment").textContent = topDepartment;   
+    document.getElementById("averageGPA").textContent = "0.00";
+    document.getElementById("attendanceRate").textContent = "0%";
+    } catch(error) {
+        console.error("Dashboard render error: ", error);
+    }
 }
