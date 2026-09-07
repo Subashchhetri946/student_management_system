@@ -10,19 +10,21 @@ app.use(express.json());
 
 db.connect(err => {
     if(err) {
-        console.log(err);
+        console.log("DB CONNECTION ERROR: ", err);
     } else {
         console.log("MySQL Connected sucessfully");
     }
 })
 
+
+// signup 
 app.post("/signup", (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, department, phone } = req.body;
 
     const sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, 'student')";
     db.query(sql, [name, email, password], (err, result) => {
         if(err) {
-            console.log(err);
+            console.log("SIGNUP ERROR: ", err);
 
             return res.status(500).json({
                 success: false,
@@ -30,20 +32,51 @@ app.post("/signup", (req, res) => {
             });
         }
 
-        res.json({
-            success: true, 
-            message: "Student account created successfully"
+        // id creation in users table
+        const userId = userResult.insertId;
+
+        //create academic data
+        const rollNo = "ROLL-" + Date.now();
+        const enrollmentDate = new Date().toISOString().slice(0, 10);
+
+        // create student record
+        const studentSql = `
+        INSERT INTO students (user_id, roll_no, department, phone, enrollment_date)
+        VALUES (?, ?, ?, ?, ?)
+        `;
+
+        db.query(studentSql, [userId, rollNo, department, phone, enrollmentDate], (studentErr, studentResult) => {
+            if(studentErr) {
+                console.log("SIGNUP STUDENT ERROR:", studentErr);
+            };
+
+            return res.status(500).json({
+                success: false,
+                message: studentErr.sqlMessage || "student account created failed"
+            })
+        });  
+        res.status(201).json({
+            success: true,
+            message: "Student account created successful",
+            user: {
+                id: userId,
+                name,
+                email,
+                role: "student"
+            },
+            studentId: studentResult.insertId
         });
     });
 });
 
+// login
 app.post("/login", (req, res) => {
     const { name, email, password } = req.body;
 
-    const sql = "SELECT id, name, role FROM users WHERE email = ? AND password = ?";
+    const sql = "SELECT id, name, email, role FROM users WHERE email = ? AND password = ?";
     db.query(sql, [ email, password], (err, result) => {
         if(err) {
-            console.log(err);
+            console.log("LOGIN ERROR: ", err);
 
             return res.status(500).json({
                 success: false,

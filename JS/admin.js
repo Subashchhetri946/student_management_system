@@ -85,6 +85,8 @@ async function saveStudentFromForm(event) {
         alert("Student added successfully!");
         document.getElementById("studentModal").close();
         document.getElementById("studentForm").reset();
+        await loadStudents();
+        await renderDashboard();
     } else {
         alert(result.message);
     }
