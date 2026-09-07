@@ -74,9 +74,15 @@ try {
 
         const data = await response.json();
 
+        console.log("Signup status: ", response.status)
+        console.log("Signup status: ", data)
+
         alert(data.message);
 
-        if (data.success) {
+        if (!response.ok || !data.success) {
+            alert(data.message || "Signup failed");
+            return;
+        }
             localStorage.setItem("userRole", "student");
             localStorage.setItem("currentUser", JSON.stringify({
                 name,
@@ -84,13 +90,13 @@ try {
                 department,
                 phone,
                 role: "student"
-            }));
+            })
+        );
 
             window.location.href = "student.html";
-        }
-
+    
     } catch (error) {
-        console.log(error);
+        console.log("Signup fetch error: ", error);
         alert("Server error. Make sure backend is running.");
     }
 });

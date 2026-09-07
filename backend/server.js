@@ -21,14 +21,14 @@ db.connect(err => {
 app.post("/signup", (req, res) => {
     const { name, email, password, department, phone } = req.body;
 
-    const sql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, 'student')";
-    db.query(sql, [name, email, password], (err, result) => {
+    const usersql = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, 'student')";
+    db.query(usersql, [name, email, password], (err, userResult) => {
         if(err) {
             console.log("SIGNUP ERROR: ", err);
 
             return res.status(500).json({
                 success: false,
-                message: "Signup failed"
+                message: err.sqlMessage ||"Signup failed"
             });
         }
 
@@ -45,16 +45,19 @@ app.post("/signup", (req, res) => {
         VALUES (?, ?, ?, ?, ?)
         `;
 
-        db.query(studentSql, [userId, rollNo, department, phone, enrollmentDate], (studentErr, studentResult) => {
+        db.query(
+            studentSql,
+            [userId, rollNo, department, phone, enrollmentDate], (studentErr, studentResult) => {
             if(studentErr) {
                 console.log("SIGNUP STUDENT ERROR:", studentErr);
-            };
 
-            return res.status(500).json({
+                 return res.status(500).json({
                 success: false,
                 message: studentErr.sqlMessage || "student account created failed"
-            })
-        });  
+            });
+            }
+
+            // everything worked
         res.status(201).json({
             success: true,
             message: "Student account created successful",
@@ -66,9 +69,10 @@ app.post("/signup", (req, res) => {
             },
             studentId: studentResult.insertId
         });
-    });
+    }
+);
 });
-
+});
 // login
 app.post("/login", (req, res) => {
     const { name, email, password } = req.body;
